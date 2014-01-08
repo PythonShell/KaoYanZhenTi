@@ -1,0 +1,66 @@
+%% code include by PythonShell
+%% From http://tex.stackexchange.com/questions/140923/how-to-automatically-align-the-four-choices-of-a-multiple-choice-question-in-exa
+%% thanks to the author ollydbg23 @ stackexchange
+%% some tiny modifies from PythonShell
+%% 2014-01-07
+
+\usepackage{ifthen}
+\usepackage{calc}
+\setlength\parindent{0pt}
+
+    %usage \choice{ }{ }{ }{ }
+    %(A)(B)(C)(D)
+    \newcommand{\fourch}[4]{
+	%\par
+            \begin{tabular}{*{4}{@{}p{0.23\textwidth}}}
+            [A] ~#1 & [B] ~#2 & [C] ~#3 & [D] ~#4
+            \end{tabular}
+    }
+
+    %(A)(B)
+    %(C)(D)
+    \newcommand{\twoch}[4]{
+	%\par
+            \begin{tabular}{*{2}{@{}p{0.46\textwidth}}}
+            [A] ~#1 & [B] ~#2
+            \end{tabular}
+    \par
+            \begin{tabular}{*{2}{@{}p{0.46\textwidth}}}
+            [C] ~#3 & [D] ~#4
+            \end{tabular}
+    }
+
+    %(A)
+    %(B)
+    %(C)
+    %(D)
+    \newcommand{\onech}[4]{
+	%\par
+            [A] ~#1 \par [B] ~#2 \par [C] ~#3 \par [D] ~#4
+    }
+
+    \newlength\widthcha
+    \newlength\widthchb
+    \newlength\widthchc
+    \newlength\widthchd
+    \newlength\widthch
+    \newlength\tabmaxwidth
+
+    \setlength\tabmaxwidth{0.96\textwidth}
+    \newlength\fourthtabwidth
+    \setlength\fourthtabwidth{0.24\textwidth}
+    \newlength\halftabwidth
+    \setlength\halftabwidth{0.48\textwidth}
+
+    \newcommand{\choice}[4]{
+            \settowidth\widthcha{AM.#1}\setlength{\widthch}{\widthcha}
+            \settowidth\widthchb{BM.#2}    
+            \ifthenelse{\widthch<\widthchb}{\setlength{\widthch}{\widthchb}}{}
+            \settowidth\widthchb{CM.#3}    
+            \ifthenelse{\widthch<\widthchb}{\setlength{\widthch}{\widthchb}}{}
+            \settowidth\widthchb{DM.#4}    
+            \ifthenelse{\widthch<\widthchb}{\setlength{\widthch}{\widthchb}}{}     
+            \ifthenelse{\widthch<\fourthtabwidth}{\fourch{#1}{#2}{#3}{#4}}
+                               {\ifthenelse{\widthch<\halftabwidth\and\widthch>\fourthtabwidth}{\twoch{#1}{#2}{#3}{#4}}
+                               {\onech{#1}{#2}{#3}{#4}}}
+    }
