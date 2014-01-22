@@ -1,0 +1,40 @@
+%!Tex Program = xelatex
+\documentclass[a4paper]{article}
+\usepackage{geometry}
+\geometry{left=3cm, right=3cm, bottom=0cm}
+\pagestyle{myheadings}
+\markright{2005 Graduate English Exam Answer -- PythonShell's Work}
+
+\XeTeXlinebreaklocale "zh"         %% 设置xelatex断行方式，中文断行与英文断行方式不一样
+\XeTeXlinebreakskip = 0pt plus 1pt %% 设置可调节的大小
+
+\usepackage{fontspec}
+\setmainfont{WenQuanYi Micro Hei}
+
+\begin{document}
+\begin{center}
+Section 1 Use of English
+
+\input{a1}
+
+\vspace{6pt}
+Section 2 Reading Comprehension
+
+Part A
+
+\input{a2}
+
+Part B
+
+\input{a3}
+
+Part C
+\end{center}
+
+\input{a4}
+
+\begin{center}Section 3 Writing\end{center}
+
+\input{a5}
+
+\end{document}
