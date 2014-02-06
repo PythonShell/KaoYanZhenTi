@@ -1,0 +1,45 @@
+%% code include by PythonShell
+%% From http://tex.stackexchange.com/questions/140923/how-to-automatically-align-the-four-choices-of-a-multiple-choice-question-in-exa
+%% thanks to the author ollydbg23 @ stackexchange
+%% some tiny modifies from PythonShell
+%% 2014-01-08
+
+\usepackage{environ}
+\newlength{\choiceslen}
+
+\newif\ifshowcorrect
+\newcounter{choices}
+\newcommand{\choicefinal}[1]{%
+  \ifnum\value{choices}>0 \hfill\fi\egroup
+  \hspace{0pt}%
+  \hbox to\choiceslen
+  \bgroup
+  \stepcounter{choices}%
+  \ifcase#1\relax
+    (\Alph{choices})%
+  \else
+    \ifshowcorrect
+      \expandafter\underline
+    \fi
+    {(\Alph{choices})}%
+  \fi\space}
+\newcommand{\choicetemp}[1]{\stepcounter{choices}\space(\Alph{choices})\cr}
+
+\NewEnviron{choices}
+ {\setcounter{choices}{0}%
+  \let\choice\choicetemp
+  \settowidth{\choiceslen}{\vbox{\halign{##\hfil\cr\BODY\crcr}}}
+  \ifdim\choiceslen>.5\textwidth
+    \setlength{\choiceslen}{\textwidth}%
+  \else
+    \ifdim\choiceslen>.25\textwidth
+      \setlength{\choiceslen}{.5\textwidth}%
+    \else
+      \setlength{\choiceslen}{.25\textwidth}%
+    \fi
+  \fi
+  \let\choice\choicefinal
+  \setcounter{choices}{0}%
+  \begin{flushleft}
+  \bgroup\BODY\hfill\egroup
+  \end{flushleft}}
