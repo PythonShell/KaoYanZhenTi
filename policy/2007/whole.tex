@@ -1,0 +1,46 @@
+%!Tex Program = xelatex
+%% Content from http://zhenti.kaoyan.eol.cn/
+%% Format by PythonShell
+%% Env: Windows7 with TexLive 2013
+\documentclass[a4paper]{book}
+
+% 设置页边距
+\usepackage{geometry}
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=1cm}
+
+% 中文断行
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+\input{choice.tex}
+
+% 设置正文默认字体为SimSun
+\usepackage{fontspec}
+\setmainfont{SimSun}
+
+% 设置楷体
+\newcommand\fontnamekai{楷体}
+\newfontinstance\KAI {\fontnamekai}
+\newcommand{\kai}[1]{{\KAI#1}}
+
+% 设置黑体
+\newcommand\fontnamehei{黑体}
+\newfontinstance\HEI{\fontnamehei}  
+\newcommand{\hei}[1]{{\HEI#1}} 
+
+% 设置页眉
+\pagestyle{myheadings}
+\markboth{PythonShell 工作室}{2007年考研政治试题}
+
+% 取消缩进
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\input{d1}
+\input{1}
+\input{d2}
+\input{2}
+\input{d3}
+\input{3}
+\end{document}
+
