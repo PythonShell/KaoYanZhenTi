@@ -1,0 +1,42 @@
+%!Tex Program = xelatex
+\documentclass[a4paper]{book}
+
+% 设置页边距
+\usepackage{geometry}
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=1cm}
+
+% 中文断行
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+\input{choice.tex}
+
+\usepackage{fontspec}
+\setmainfont{SimSun}	% 设置正文默认字体为SimSun
+
+\newcommand\fontnamekai{楷体}	% 设置楷体
+\newfontinstance\KAI {\fontnamekai}
+\newcommand{\kai}[1]{{\KAI#1}}
+
+\newcommand\fontnamehei{黑体}	% 设置黑体
+\newfontinstance\HEI{\fontnamehei}  
+\newcommand{\hei}[1]{{\HEI#1}} 
+
+% 设置页眉
+\pagestyle{myheadings}
+\markboth{PythonShell 工作室}{2007年考研政治答案}
+
+% 取消缩进
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\begin{tabbing}
+一、单选题\\
+\= 01. B \qquad \= 02. C \qquad \= 03. D \qquad \= 04. B \qquad \= 05. B \qquad \= 06. B \qquad \= 07. B \qquad \= 08. C \qquad \= \\
+\> 09. A \> 10. A \> 11. D \> 12. A \> 13. C \> 14. C \> 15. A \> 16. D \\
+二、多选题\\
+\> 17. AD   \> 18. ABD  \> 19. ABCD \> 20. ABD  \> 21. BD   \> 22. AD   \> 23. ACD  \> 24. AD\\
+\> 25. AC   \> 26. BCD  \> 27. ABD  \> 28. ABCD \> 29. ACD  \> 30. ABC  \> 31. ABCD \> 32. ABCD \> 33. ABCD\\
+\end{tabbing}
+\end{document}
+
