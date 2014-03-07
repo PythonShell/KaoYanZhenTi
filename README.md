@@ -1,4 +1,5 @@
 KaoYanZhenTi
 ============
 
-repo for 研究生考试历年真题
+This the develop branch, used to develop new items.
+
