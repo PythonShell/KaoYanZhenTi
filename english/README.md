@@ -1,6 +1,6 @@
 This folder is the src for Graudate English Tests in China.
 
-Now, I've finish the questions from year 2005 to year 2013. Answers are not avaiable at this point, but I will upload the Answers as quickly as possible.
+Now, I've finish the questions and answers from year 2005 to year 2013, and questions of year 2014.
 
 My Environment is Texlive 2013 on Win 7, using pdfLaTeX engine.
 
@@ -12,10 +12,10 @@ There are already compiled PDFs, you are recommend to download them, instead of 
 
 If you wanna to build PDFs or DVIs by yourself, just compile the whole.tex file in the sub folders.
 
-`latex whole.tex`
+```latex whole.tex```
 
 then use `dvipdf` command to produce PDF from DVI:
 
-`dvipdf whole`
+```dvipdf whole```
 
 With time allowed, I'll try to build some other format. Your advices are welcomed. Just tell me.
