@@ -1,6 +1,6 @@
 *.aux
 *.log
 *.synctex.gz
-english
-math
-policy
+math/
+policy/
+english/
